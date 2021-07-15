@@ -22,7 +22,7 @@
           <div class="content-detail-content" v-html="data.content">
               
           </div>
-          <div class="content-detail-button">
+          <div class="content-detail-button" v-if="getLoginId === data.user_id">
               <b-button variant="primary" @click="modifyData">Modify</b-button>
               <b-button variant="success" @click="deleteData">Delete</b-button>
           </div>
@@ -32,6 +32,8 @@
 
 <script>
 import {fetchDataById, deleteData} from '@/service'
+import { getFilesInfo, getFile } from '@/service/file/file.js';
+import {mapGetters} from 'vuex';
 
 export default {
     name: "ContentDetail",
@@ -45,6 +47,11 @@ export default {
         const resp = await fetchDataById(this.id);
         this.data = resp.data.data;
         
+    },
+    computed: {
+        ...mapGetters('account',[
+            'getLoginId'
+        ])
     },
     methods: {
         async deleteData() {

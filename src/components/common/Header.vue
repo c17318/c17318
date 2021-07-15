@@ -8,6 +8,8 @@
 			<b-collapse is-nav id="nav_collapse">
 				<b-navbar-nav>
 					<b-nav-item href='#'>notice</b-nav-item>
+					<b-nav-item to='/login'>login</b-nav-item>
+					<b-nav-item to='/register'>register</b-nav-item>
 					<b-nav-item to='/board/free'>board</b-nav-item>
 					<b-nav-item to='/chatroom'>chatroom</b-nav-item>
 				</b-navbar-nav>
@@ -18,6 +20,7 @@
 </template>
 
 <script>
+// import request from './request.js'
 export default {
     name: "Header"
 }
@@ -29,6 +32,5 @@ header h1{position:absolute; top:0; left:100px;}
 header ul.menu:after{display:block; clear:both; content:'';}
 header ul.menu{position:absolute; top:20px; right:50px;}
 header ul.menu li{float:left; padding:10px 20px; list-style:none;}
-
 a{text-decoration:none; color:#333;}
 </style>
